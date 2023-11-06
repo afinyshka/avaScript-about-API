@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+    <script>
+        // Создаем событие клика
+        const clickEvent = new Event('click');
+
+        // Добавляем обработчик события на элемент
+        const button = document.querySelector('#btn')
+        button.addEventListener('click', function (e) {
+            console.log('Clicked the button');
+        })
+        
+        // Имитируем клик на кнопке
+        button.dispatchEvent(clickEvent); // симуляция клмка программно, который создан выше clickEvent
+    </script>
+
+</body>
+
+</html>

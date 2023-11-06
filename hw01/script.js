@@ -169,7 +169,7 @@ function removeFromMyTraining(item) {
         if (sessionIndex !== -1) {
             registeredSessions.splice(sessionIndex, 1);
         }
-        item.currentParticipants--; // Уменьшаем количество текущих записанных участников
+        // item.currentParticipants++; // Уменьшаем количество текущих записанных участников
         renderMyTraining();
         renderSchedule(); // Обновите карточку расписания после отмены записи
         updateButtonState(); // Обновите состояние кнопок после отмены записи

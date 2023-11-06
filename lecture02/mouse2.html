@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* .menu-item: hover {
+            background-color: #f0f0f0;
+        ｝*/
+    </style>
+</head>
+
+<body>
+    <div id="context-menu">
+        <ul>
+            <li>link</li>
+            <li>link</li>
+            <li>link</li>
+            <li>link</li>
+            <li>link</li>
+        </ul>
+    </div>
+
+    <script>
+        const contextMenu = document.getElementById('context-menu');
+
+        document.addEventListener('click', function (event) {
+            if (event.target !== contextMenu) {
+                contextMenu.style.display = 'none';
+            }
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Space') {
+                contextMenu.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

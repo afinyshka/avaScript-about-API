@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div>
+        <p>
+            <span style="background: red;">
+                Click me! it's span
+            </span>
+        </p>
+    </div>
+    <script>
+        for (let element of document.querySelectorAll('*')) {
+            //Погружение и всплытие
+            element.addEventListener('click', function (e) {
+                // e.stopPropagation(); // Остановить всплытие или погружение
+                console.log(`Погружение - capturing ${element.tagName}`);
+            }, true);
+            element.addEventListener('click', function (e) {
+                console.log(`Всплытие - bubbling ${element.tagName}`)
+            })
+        }
+    </script>
+</body>
+
+</html>

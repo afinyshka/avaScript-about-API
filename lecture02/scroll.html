@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .image {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container" id="imageContainer"></div>
+    <script>
+        // window.addEventListener('scroll', function () {
+        //     document.getElementById('showScroll').innerHTML = scrollY + 'px';
+        // });
+
+        const imageContainer = document.getElementById('imageContainer');
+        const loadImagesInterval = 1000; // Интервал загрузки изображений (1 секунда)
+
+        let imageCounter = 1;
+
+        function loadImages() {
+            for (let i = 0; i < 5; i++) {
+                const image = document.createElement('img');
+                image.src = `https://via.placeholder.com/200x150?text=Image${imageCounter}`;
+                image.className = 'image';
+                imageContainer.appendChild(image);
+                imageCounter++;
+            }
+        }
+
+        function checkScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                loadImages();
+            }
+        }
+
+        loadImages(); // Загрузка начальных изображений
+
+        window.addEventListener('scroll', checkScroll);
+
+        // Загрузка изображений с интервалом
+        setInterval(function () {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                loadImages();
+            }
+        }, loadImagesInterval);
+
+    </script>
+</body>
+
+</html>
